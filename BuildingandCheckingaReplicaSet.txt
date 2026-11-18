@@ -1,38 +1,6 @@
-🍺  /opt/homebrew/Cellar/node/26.13.1_2: 2,077 files, 75.3MB
-==> Upgrading mongodb/brew/mongodb-community dependency: mongosh (2.14
-==> Pouring mongosh--2.14.2.arm64_golden_gate.bottle.tar.gz
-🍺  /opt/homebrew/Cellar/mongosh/2.14.2: 15,832 files, 108.7MB
-==> Installing mongodb/brew/mongodb-community
-Warning: Calling `post_install` is deprecated! Use `post_install_steps` instead.
-🍺  /opt/homebrew/Cellar/mongodb-community/9.0.8: 12 files, 737.3MB, built in 6 seconds
-==> Cleanup
-Removing: /opt/homebrew/Cellar/mongodb-community/9.0.2... (12 files, 697.1MB)
-Disable this behaviour by setting `HOMEBREW_NO_INSTALL_CLEANUP=1`.
-Hide these hints with `HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
-==> Caveats
-==> mongodb-community
-To restart mongodb/brew/mongodb-community after an upgrade:
-  brew services restart mongodb/brew/mongodb-community
-shouryasharma@Shouryas-MacBook-Air ~ % brew services restart mongodb/brew/mongodb-community
 
-Stopping `mongodb-community`... (might take a while)
-==> Successfully stopped `mongodb-community` (label: sh.brew.mongodb-community)
-==> Successfully started `mongodb-community` (label: sh.brew.mongodb-community)
-shouryasharma@Shouryas-MacBook-Air ~ % clear
 
-shouryasharma@Shouryas-MacBook-Air ~ % mongosh --port 27017
-Current Mongosh Log ID:	6afd59d235560ea72412a970
-Connecting to:		mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.14.2
-Using MongoDB:		9.0.8
-Using Mongosh:		2.14.2
 
-For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
-
-------
-   The server generated these startup warnings when booting
-   2026-11-18T13:21:27.700+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
-   2026-11-18T13:21:27.700+05:30: Soft rlimits for open file descriptors too low
-------
 
 test> rs.initiate({
 |   _id: "rs0",
