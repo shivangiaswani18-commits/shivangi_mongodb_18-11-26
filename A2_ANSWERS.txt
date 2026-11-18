@@ -1,0 +1,230 @@
+Microsoft Windows [Version 10.0.26200.9974]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\INDIAN  OIL>mongosh "mongodb+srv://cluster0.ek1xurq.mongodb.net/" --apiVersion 1 --username 2024pceaitpratibha36_db_user
+Enter password: ********
+Current Mongosh Log ID: 6afd516ca2c8070b41915af9
+Connecting to:          mongodb+srv://<credentials>@cluster0.ek1xurq.mongodb.net/?appName=mongosh+2.10.0
+Using MongoDB:          8.0.37 (API Version 1)
+Using Mongosh:          2.10.0
+mongosh 2.14.2 is available for download: https://www.mongodb.com/try/download/shell
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+Atlas atlas-yl4z6k-shard-0 [primary] test> use collegeDB
+|
+switched to db collegeDB
+Atlas atlas-yl4z6k-shard-0 [primary] collegeDB> db.students.insertOne({
+|   _id: 101,
+|   name: "Arun",
+|   dept: "CSE",
+|   marks: 78,
+|   scores: [
+|     { subject: "DBMS", mark: 85 },
+|     { subject: "Maths", mark: 70 }
+|   ]
+| })
+{ acknowledged: true, insertedId: 101 }
+Atlas atlas-yl4z6k-shard-0 [primary] collegeDB> db.students.insertOne({
+|   _id: 101,
+|   name: "Arun",
+|   dept: "CSE",
+|   marks: 78,
+|   scores: [
+|     { subject: "DBMS", mark: 85 },
+|     { subject: "Maths", mark: 70 }
+|   ]
+| })
+MongoServerError: E11000 duplicate key error collection: collegeDB.students index: _id_ dup key: { _id: 101 }
+Atlas atlas-yl4z6k-shard-0 [primary] collegeDB> db.students.insertMany([
+|   {
+|     _id: 102,
+|     name: "Bala",
+|     dept: "IT",
+|     marks: 66,
+|     scores: [
+|       { subject: "DBMS", mark: 60 },
+|       { subject: "Maths", mark: 72 }
+|     ]
+|   },
+|   {
+|     _id: 103,
+|     name: "Chitra",
+|     dept: "CSE",
+|     marks: 91,
+|     scores: [
+|       { subject: "DBMS", mark: 95 },
+|       { subject: "Maths", mark: 87 }
+|     ]
+|   },
+|   {
+|     _id: 104,
+|     name: "Divya",
+|     dept: "ECE",
+|     marks: 72,
+|     scores: [
+|       { subject: "DBMS", mark: 55 },
+|       { subject: "Maths", mark: 89 }
+|     ]
+|   },
+|   {
+|     _id: 105,
+|     name: "Eswar",
+|     dept: "IT",
+|     marks: 84,
+|     scores: [
+|       { subject: "DBMS", mark: 88 },
+|       { subject: "Maths", mark: 80 }
+|     ]
+|   },
+|   {
+|     _id: 106,
+|     name: "Farah",
+|     dept: "CSE",
+|     marks: 59,
+|     scores: [
+|       { subject: "DBMS", mark: 45 },
+|       { subject: "Maths", mark: 73 }
+|     ]
+|   }
+| ])
+|
+{
+  acknowledged: true,
+  insertedIds: { '0': 102, '1': 103, '2': 104, '3': 105, '4': 106 }
+}
+Atlas atlas-yl4z6k-shard-0 [primary] collegeDB> db.students.find({
+|   dept: "CSE"
+| })
+[
+  {
+    _id: 101,
+    name: 'Arun',
+    dept: 'CSE',
+    marks: 78,
+    scores: [ { subject: 'DBMS', mark: 85 }, { subject: 'Maths', mark: 70 } ]
+  },
+  {
+    _id: 103,
+    name: 'Chitra',
+    dept: 'CSE',
+    marks: 91,
+    scores: [ { subject: 'DBMS', mark: 95 }, { subject: 'Maths', mark: 87 } ]
+  },
+  {
+    _id: 106,
+    name: 'Farah',
+    dept: 'CSE',
+    marks: 59,
+    scores: [ { subject: 'DBMS', mark: 45 }, { subject: 'Maths', mark: 73 } ]
+  }
+]
+Atlas atlas-yl4z6k-shard-0 [primary] collegeDB> db.students.find({
+|   marks: { $gte: 75 }
+| })
+[
+  {
+    _id: 101,
+    name: 'Arun',
+    dept: 'CSE',
+    marks: 78,
+    scores: [ { subject: 'DBMS', mark: 85 }, { subject: 'Maths', mark: 70 } ]
+  },
+  {
+    _id: 103,
+    name: 'Chitra',
+    dept: 'CSE',
+    marks: 91,
+    scores: [ { subject: 'DBMS', mark: 95 }, { subject: 'Maths', mark: 87 } ]
+  },
+  {
+    _id: 105,
+    name: 'Eswar',
+    dept: 'IT',
+    marks: 84,
+    scores: [ { subject: 'DBMS', mark: 88 }, { subject: 'Maths', mark: 80 } ]
+  }
+]
+Atlas atlas-yl4z6k-shard-0 [primary] collegeDB> db.students.find({
+|   dept: { $in: ["CSE", "IT"] }
+| })
+[
+  {
+    _id: 101,
+    name: 'Arun',
+    dept: 'CSE',
+    marks: 78,
+    scores: [ { subject: 'DBMS', mark: 85 }, { subject: 'Maths', mark: 70 } ]
+  },
+  {
+    _id: 102,
+    name: 'Bala',
+    dept: 'IT',
+    marks: 66,
+    scores: [ { subject: 'DBMS', mark: 60 }, { subject: 'Maths', mark: 72 } ]
+  },
+  {
+    _id: 103,
+    name: 'Chitra',
+    dept: 'CSE',
+    marks: 91,
+    scores: [ { subject: 'DBMS', mark: 95 }, { subject: 'Maths', mark: 87 } ]
+  },
+  {
+    _id: 105,
+    name: 'Eswar',
+    dept: 'IT',
+    marks: 84,
+    scores: [ { subject: 'DBMS', mark: 88 }, { subject: 'Maths', mark: 80 } ]
+  },
+  {
+    _id: 106,
+    name: 'Farah',
+    dept: 'CSE',
+    marks: 59,
+    scores: [ { subject: 'DBMS', mark: 45 }, { subject: 'Maths', mark: 73 } ]
+  }
+]
+Atlas atlas-yl4z6k-shard-0 [primary] collegeDB> db.students.find({
+|   scores: {
+|     $elemMatch: {
+|       subject: "DBMS",
+|       mark: { $gt: 80 }
+|     }
+|   }
+| })
+[
+  {
+    _id: 101,
+    name: 'Arun',
+    dept: 'CSE',
+    marks: 78,
+    scores: [ { subject: 'DBMS', mark: 85 }, { subject: 'Maths', mark: 70 } ]
+  },
+  {
+    _id: 103,
+    name: 'Chitra',
+    dept: 'CSE',
+    marks: 91,
+    scores: [ { subject: 'DBMS', mark: 95 }, { subject: 'Maths', mark: 87 } ]
+  },
+  {
+    _id: 105,
+    name: 'Eswar',
+    dept: 'IT',
+    marks: 84,
+    scores: [ { subject: 'DBMS', mark: 88 }, { subject: 'Maths', mark: 80 } ]
+  }
+]
+Atlas atlas-yl4z6k-shard-0 [primary] collegeDB> db.students.find(
+|   {},
+|   { _id: 0, name: 1, marks: 1 }
+| ).sort(
+|   { marks: -1 }
+| ).limit(3)
+[
+  { name: 'Chitra', marks: 91 },
+  { name: 'Eswar', marks: 84 },
+  { name: 'Arun', marks: 78 }
+]
+Atlas atlas-yl4z6k-shard-0 [primary] collegeDB>
